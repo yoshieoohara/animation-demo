@@ -1,0 +1,13 @@
+@use "../setting" as s; 
+
+ @mixin flex($justify: center) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+ }
+
+ @mixin img {
+    display: block;
+    width: 100%;
+    height: 100%;
+ }

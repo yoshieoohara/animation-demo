@@ -1,0 +1,36 @@
+$breakpoints: (
+  "sm": "screen and (max-width: 374px)",
+  "md": "screen and (max-width: 767px)",
+  "lg": "screen and (max-width: 1023px)",
+  "xl": "screen and (max-width: 1199px)",
+);
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoints, $bp)} {
+    @content;
+  }
+}
+
+// responsive
+html {
+  @media (min-width: 1200px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    font-size: calc(16 / 1200 * 100vw);
+  }
+
+  @media (min-width: 375px) and (max-width: 767px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 374px) {
+    font-size: calc(16 / 375 * 100vw);
+  }
+}
+
+// px to rem
+@function rem($px) {
+  @return ($px / 16) * 1rem;
+}
